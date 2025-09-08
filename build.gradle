@@ -11,7 +11,6 @@ version '1.0.4-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
 java {
     sourceCompatibility = JavaVersion.VERSION_17 // Java 17로 업그레이드 (Spring Boot 3.x 최소 요구사항)
 }
-
 // 원격저장소
 repositories {
     mavenCentral()
@@ -28,4 +27,21 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     // 테스트
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+    // Lombok 설정
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // 스프링 부트용 spring Data HPA 추상화 라이브러리
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    // 인메모리형 관계형 데이터 베이스
+    implementation('com.h2database:h2')
+    // 머스타치 스타터 의존성 등록
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
+    // Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation 'org.springframework.session:spring-session-jdbc'
 }
